@@ -1,5 +1,5 @@
-# Use the official lightweight Python image.
-# https://hub.docker.com/_/python
+# docker build -t csighub.tencentyun.com/tme-kubeflow/cartoonize:latest .
+# docker run --name cart -it --rm -p 8080:8080 csighub.tencentyun.com/tme-kubeflow/cartoonize:latest bash
 FROM python:3.7-slim
 
 # Copy local code to the container image.
@@ -23,3 +23,5 @@ RUN pip install -r requirements.txt
 # For environments with multiple CPU cores, increase the number of workers
 # to be equal to the cores available.
 CMD exec gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
+
+
